@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div.box {
+            width: 300px;
+            height: 200px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+
+    </div>
+    <p>
+        R:<input type="range" id="" value="0" min="0" max="255">
+        <span>0</span>
+    </p>
+    <p>
+        G:<input type="range" id="" value="0" min="0" max="255">
+        <span>0</span>
+    </p>
+    <p>
+        B:<input type="range" id="" value="0" min="0" max="255">
+        <span>0</span>
+    </p>
+</body>
+
+<script>
+    // input标签绑定事件，范围条value值发生变化时触发
+    $("input:eq(0)").on("input", function () {
+        // $("span:eq(0)").html($("input:eq(0)").attr("value"));
+        // 设置当前表单元素兄弟节点的文本
+        // $(this).val()：获取当前表单元素的value值
+        $(this).siblings().html($(this).val());
+        // 修改盒子的背景颜色
+        $(".box").css({
+            "backgroundColor": `rgb(${$(this).val()},0,0)`
+        })
+    });
+</script>
+
+</html>
