@@ -40,16 +40,50 @@
 </body>
 
 <script>
+    // 用JSON数据格式存储三个表单元素value数值
+    var rgb = {
+        r: 0,
+        g: 0,
+        b: 0
+    }
     // input标签绑定事件，范围条value值发生变化时触发
+    // on()方法：在被选元素及子元素上添加一个或多个事件处理程序
+    // input事件：在表单元素的value属性值发生变化的时候，这个事件就会触发
     $("input:eq(0)").on("input", function () {
         // $("span:eq(0)").html($("input:eq(0)").attr("value"));
         // 设置当前表单元素兄弟节点的文本
         // $(this).val()：获取当前表单元素的value值
         $(this).siblings().html($(this).val());
+        // 用JSON数据格式存储第一个数据表单元素的value
+        rgb.r = $(this).val();
         // 修改盒子的背景颜色
         $(".box").css({
-            "backgroundColor": `rgb(${$(this).val()},0,0)`
-        })
+            "backgroundColor": `rgb(${rgb.r},${rgb.g},${rgb.b})`
+        });
+    });
+    $("input:eq(1)").on("input", function () {
+        // $("span:eq(0)").html($("input:eq(0)").attr("value"));
+        // 设置当前表单元素兄弟节点的文本
+        // $(this).val()：获取当前表单元素的value值
+        $(this).siblings().html($(this).val());
+        // 用JSON数据格式存储第一个数据表单元素的value
+        rgb.g = $(this).val();
+        // 修改盒子的背景颜色
+        $(".box").css({
+            "backgroundColor": `rgb(${rgb.r},${rgb.g},${rgb.b})`
+        });
+    });
+    $("input:eq(2)").on("input", function () {
+        // $("span:eq(0)").html($("input:eq(0)").attr("value"));
+        // 设置当前表单元素兄弟节点的文本
+        // $(this).val()：获取当前表单元素的value值
+        $(this).siblings().html($(this).val());
+        // 用JSON数据格式存储第一个数据表单元素的value
+        rgb.b = $(this).val();
+        // 修改盒子的背景颜色
+        $(".box").css({
+            "backgroundColor": `rgb(${rgb.r},${rgb.g},${rgb.b})`
+        });
     });
 </script>
 
