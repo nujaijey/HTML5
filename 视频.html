@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+
+        }
+
+        video {
+            width: 600px;
+            height: 400px;
+            /* 清除外层黑色边框 */
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- controls：显示默认控制条 -->
+    <!-- <video src="video/1.mp4" controls></video> -->
+
+    <video src="video/1.mp4" controls></video>
+    <div>
+        <button class="play">play</button>
+        <button class="pause">pause</button>
+    </div>
+</body>
+<script>
+    var video = document.querySelector("video");
+    var playBtn = document.querySelector(".play");
+    var pausebtn = document.querySelector(".pause");
+    // 播放按钮绑定单击事件
+    playBtn.onclick = function () {
+        // 视频播放
+        video.play();
+    }
+    // 暂停按钮绑定单击事件
+    pausebtn.onclick = function () {
+        // 视频暂停
+        video.pause();
+        // 获取当前视频播放到的时间
+        console.log(video.currentTime);
+        // 设置当前视频播放到的时间 
+        video.currentTime = 60;
+        // 获取视频的总时长
+        console.log(video.duration);
+        // 操作视频的音量（0 0.5 1）
+        console.log(video.volume);
+        video.volume = 0;
+    }
+
+    // 视频的3个事件
+    // 检测到视频是否播放，如果播放事件处理函数执行一次
+    video.onplay = function () {
+        alert("视频播放了");
+    }
+
+    // 检测到视频是否暂停，如果暂停事件处理函数执行一次
+    video.onpause = function () {
+        alert("视频暂停了");
+    }
+
+    // 如果视频当前的播放时间发生变化，事件处理函数马上执行一次
+    video.ontimeupdate = function () {
+        console.log("当前播放时间发生变化");
+    }
+</script>
+
+</html>
