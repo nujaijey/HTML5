@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    div {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 1px solid black;
+        margin: 100px auto;
+    }
+
+    /* 伪元素写法之一 */
+    div::after {
+        /* 伪元素务必脱离文档标准流 */
+        position: absolute;
+        /* 伪元素务必拥有content属性 */
+        content: '';
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        left: 100px;
+    }
+
+    /* 伪元素写法之二 */
+    div::before {
+        position: absolute;
+        content: '';
+        width: 50px;
+        height: 50px;
+        background-color: cyan;
+        border-radius: 50%;
+    }
+</style>
+
+<body>
+    <!-- 双闭合标签才有伪元素 -->
+    <div></div>
+</body>
+
+</html>
