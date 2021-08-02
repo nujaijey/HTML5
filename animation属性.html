@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: blueviolet;
+            /* 调用动画 */
+            animation: donghua 2s linear 0s 4;
+        }
+
+        /* 声明动画 */
+        /* 常用的CSS样式都可以参与动画 */
+        /* 带有浏览器私有前缀的属性，只能在符合条件的浏览器中执行 */
+        @-webkit-keyframes donghua {
+            from {
+                left: 0;
+            }
+
+            to {
+                left: 800px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+    <div></div>
+</body>
+
+</html>
