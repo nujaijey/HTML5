@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer {
+            width: 200px;
+            height: 200px;
+            /* border: 1px solid black; */
+            margin: 100px auto;
+            /* 景深属性 */
+            perspective: 1000px;
+        }
+
+        ul {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            list-style: none;
+            /* 如果某一个标签既为舞台又为演员，加上transform-style属性 */
+            transform-style: preserve-3d;
+            /* transform: rotateX(0deg) rotateY(0deg); */
+            /* 调用动画 */
+            animation: donghua 5s linear 0s infinite;
+        }
+
+        ul:hover {
+            animation-play-state: paused;
+        }
+
+        /* 声明动画 */
+        @-webkit-keyframes donghua {
+            from {
+                transform: rotateX(0deg) rotateY(0deg);
+            }
+
+            to {
+                transform: rotateX(360deg) rotateY(360deg);
+            }
+        }
+
+
+        li {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            /* background: violet; */
+            opacity: .8;
+        }
+
+        li:nth-child(1) {
+            background: red;
+            transform: translateZ(100px);
+        }
+
+        li:nth-child(2) {
+            background: orange;
+            transform: translateZ(-100px);
+        }
+
+        li:nth-child(3) {
+            background: yellow;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+
+        li:nth-child(4) {
+            background: green;
+            transform: rotateX(90deg) translateZ(-100px);
+        }
+
+        li:nth-child(5) {
+            background: cyan;
+            transform: rotateY(90deg) translateZ(-100px);
+        }
+
+        li:nth-child(6) {
+            background: blue;
+            transform: rotateY(90deg) translateZ(100px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="outer">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+
+</html>
