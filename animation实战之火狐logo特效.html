@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 280px;
+            height: 276px;
+            background: url(images/firefore.jpg);
+            background-size: 100% 100%;
+            margin: 100px auto;
+            /* 调用动画 */
+            animation: donghua 5s linear 0s infinite;
+        }
+
+
+        /* 声明动画 */
+        @-webkit-keyframes donghua {
+
+            /* 百分比形式的动画是按照动画的总时间进行划分的 */
+            0% {
+                transform: rotate(0deg);
+            }
+
+            50% {
+                transform: rotate(360deg);
+            }
+
+            /* 动画总时长5s，用了2.5s旋转到360deg，剩下的2.5s用来等待 */
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>
